@@ -1,4 +1,5 @@
 export default `
-type Query {
+  type Query {
     hi: String
-}`
+  }
+`;

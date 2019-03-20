@@ -21,4 +21,6 @@ app.use(graphqlEndpoint, bodyParser.json(), graphqlExpress({ schema }));
 
 app.use("/graphiql", graphiqlExpress({ endpointURL: graphqlEndpoint }));
 
-app.listen(8000);
+models.sequelize.sync().then((x) => {
+	app.listen(8000);
+});

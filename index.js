@@ -28,7 +28,10 @@ app.use(
 	graphqlExpress({
 		schema,
 		context: {
-			models
+			models,
+			user: {
+				id: 1
+			}
 		}
 	})
 );

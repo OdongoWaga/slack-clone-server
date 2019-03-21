@@ -6,4 +6,7 @@ type Team {
   channels: [Channel!]!
 }
 
+type Mutation {
+    createTeam(name: String!): Boolean!
+}
 `;

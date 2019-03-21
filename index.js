@@ -22,10 +22,19 @@ const schema = makeExecutableSchema({
 });
 const graphqlEndpoint = "/graphql";
 
-app.use(graphqlEndpoint, bodyParser.json(), graphqlExpress({ schema }));
+app.use(
+	graphqlEndpoint,
+	bodyParser.json(),
+	graphqlExpress({
+		schema,
+		context: {
+			models
+		}
+	})
+);
 
 app.use("/graphiql", graphiqlExpress({ endpointURL: graphqlEndpoint }));
 
-models.sequelize.sync().then((x) => {
+models.sequelize.sync({}).then((x) => {
 	app.listen(8000);
 });

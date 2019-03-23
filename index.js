@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import { graphqlExpress, graphiqlExpress } from "apollo-server-express";
 import { makeExecutableSchema } from "graphql-tools";
 import path from "path";
+const cors = require("cors");
 
 import { fileLoader, mergeTypes, mergeResolvers } from "merge-graphql-schemas";
 
@@ -15,6 +16,8 @@ const resolvers = mergeResolvers(
 );
 
 const app = express();
+
+app.use(cors("*"));
 
 const schema = makeExecutableSchema({
 	typeDefs,

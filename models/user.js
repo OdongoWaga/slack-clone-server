@@ -10,7 +10,7 @@ export default (sequelize, DataTypes) => {
 				},
 				len: {
 					args: [3, 25],
-					msg: "Username needs to be between 3 and 25 characters"
+					msg: "The username needs to be between 3 and 25 characters long"
 				}
 			}
 		},
@@ -18,13 +18,13 @@ export default (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			unique: true,
 			validate: {
-				args: true,
-				msg: "Invalid Email"
+				isEmail: {
+					args: true,
+					msg: "Invalid email"
+				}
 			}
 		},
-		password: {
-			type: DataTypes.STRING
-		}
+		password: DataTypes.STRING
 	});
 
 	User.associate = (models) => {

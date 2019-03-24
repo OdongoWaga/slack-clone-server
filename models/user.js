@@ -23,13 +23,7 @@ export default (sequelize, DataTypes) => {
 			}
 		},
 		password: {
-			type: DataTypes.STRING,
-			validate: {
-				len: {
-					args: [5, 25],
-					msg: "Password needs to be between 5 and 25 characters"
-				}
-			}
+			type: DataTypes.STRING
 		}
 	});
 

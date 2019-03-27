@@ -12,6 +12,6 @@ type CreateTeamResponse {
 }
 
 type Mutation {
-    createTeam(name: String!): CreateTeamResponse!
+    createTeam(name: String!, token: String!): CreateTeamResponse!
 }
 `;
